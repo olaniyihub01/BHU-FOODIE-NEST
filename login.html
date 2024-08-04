@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+    <style> 
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: #f7f7f7;
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #eb5732;
+        }
+        
+        a:hover {
+            color: #3e8e41
+        }
+        
+        /* Header Styles */
+        .header {
+            background-color: #148317;
+            color: #fff;
+            padding: 1rem;
+            text-align: left;
+            position: relative;
+        }
+        
+        .header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header .text {
+            font-size: 1.6rem;
+            top: -1rem;
+            font-weight: bold;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .header .text a {
+            color: #fff;
+            margin-left: 1rem;
+        }
+
+         /* Add some basic styling to the body */
+         body {
+            font-family: Arial, sans-serif;
+            background-image: url('dinner.jpg');
+            background-size: cover; /* Ensures the background image covers the entire viewport */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            background-position: center center; /* Centers the background image */
+            padding: 0px;
+           
+        }
+        
+        /* Style the form container */
+        form {
+        
+            padding: 40px;
+            width: 25%;
+            margin: 20px auto;
+            position: absolute; /* Or 'fixed' for a fixed position relative to the viewport */
+            bottom: 20px; /* Adjust the value as needed */
+            right: 20px; /* Adjust the value as needed */
+        }
+        
+        /* Style the form labels and inputs */
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            height: 40px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        /* Style the submit button */
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+
+        button[class="login-btn"]:hover {
+            background-color: #3e8e41;
+        }
+        
+        /* Add some basic styling to the h2 heading */
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        
+        /* Hero Styles */
+        .hero {
+            background-image: linear-gradient(to bottom, #f7f7f7, #fff);
+            padding: 5rem 1rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #3e8e41;
+        }
+        
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div 
+            class="logo">MyBHU Foodie
+        </div>
+        <div class="text">
+            Login your Account
+        </div>
+    </header>
+
+    
+    <form action="{restaurants.html}" method="POST">
+        <h1>Login</h1>
+        
+        <input type="text" id="Username" placeholder="Username" name="username" required>
+        
+        <input type="password" id="password" placeholder="Password" name="password" required>
+        <button type="submit">Login</button>
+    </form>
+    
+ 
+</body>
+</html>
