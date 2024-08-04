@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Ordering System</title>
+    <style>
+        /* Add some basic styling to the body */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('dinner.jpg');
+            background-size: cover; /* Ensures the background image covers the entire viewport */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            background-position: center center; /* Centers the background image */
+            padding: 0px;
+        }
+        
+        /* Style the form container */
+        form {
+            padding: 40px;
+            width: 50%;
+            margin: 20px auto;
+        }
+        
+        /* Style the form labels and inputs */
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            height: 40px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        /* Style the submit button */
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+        
+        /* Add some basic styling to the h2 heading */
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        /* Style the restaurant list */
+        .restaurant-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .restaurant-list li {
+            margin-bottom: 10px;
+        }
+        
+        .restaurant-list a {
+            text-decoration: none;
+            color: #eb5732;
+        }
+        
+        .restaurant-list a:hover {
+            color: #3e8e41;
+        }
+        
+        /* Style the menu list */
+        .menu-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .menu-list li {
+            margin-bottom: 10px;
+        }
+        
+        .menu-list label {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Food Ordering System</h1>
+    </header>
+    
+    <h2>Select a Restaurant</h2>
+    <ul class="restaurant-list">
+        {% for restaurant in restaurants %}
+            <li><a href="#" data-restaurant-id="{{ restaurant.id }}">{{ restaurant.name }}</a></li>
+        {% endfor %}
+    </ul>
+    
+    <div id="menu-container">
+        <!-- Menu will be loaded here dynamically -->
+    </div>
+    
+    <script>
+        const restaurantList = document.querySelector('.restaurant-list');
+        const menuContainer = document.querySelector('#menu-container');
+        
+        restaurantList.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') {
+                const restaurantId = e.target.getAttribute('data-restaurant-id');
+                loadMenu(restaurantId);
+            }
+        });
+        
+        function loadMenu(restaurantId) {
+            // Make an AJAX request to load the menu for the selected restaurant
+            fetch(`/menu/${restaurantId}`)
+                .then(response => response.text())
+                .then(html => {
+                    menuContainer.innerHTML = html;
+                });
+        }
+    </script>
+    
+    <div id="order-container">
+        <!-- Order form will be loaded here dynamically -->
+    </div>
+    
+    <script>
+        const orderContainer = document.querySelector('#order-container');
+        
+        menuContainer.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const restaurantId = formData.get('restaurant_id');
+            const address = formData.get('address');
+            const menuItems = [];
+            formData.forEach((value, key) => {
+                if (key.startsWith('menu_item_')) {
+                    menuItems.push(value);
+                }
+            });
+            
+            // Make an AJAX request to place the order
+            fetch(`/place-order/${restaurantId}`, {
+                method: 'POST',
+                body: JSON.stringify({ address, menuItems }),
+                headers: { 'Content-Type': 'application/json' }
+            })
+                .then(response => response.text())
+                .then(html => {
+                    orderContainer.innerHTML = html;
+                });
+        });
+    </script>
+</body>
+</html>
