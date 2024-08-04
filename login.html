@@ -1,41 +1,31 @@
-required> html for sign up: <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIGN UP</title> 
+    <title>LOGIN</title>
 </head>
 <body>
     <header class="header">
         <div 
-            class="logo">BHU FoodieNest
+            class="logo">MyBHU Foodie
         </div>
-        <div
-        class="text">Create An Account
+        <div class="text">
+            Login your Account
         </div>
     </header>
+
     
-    <form action="{{ url_for('register') }}" method="POST">
-        <h2>Register</h2>
-           <input type="text" class="name1" id="username" placeholder="Username" name="username"
-            <input type="email" id="email" placeholder="Email" required>
-            <input type="tel" class="number" id="Phone Number" placeholder="0800000000" pattern="^(\+234|0)\d{10}$" name="Phone Number" required> 
-            <small>Format: +234xxxxxxxxxx or 0xxxxxxxxxx</small>
-            <br><br>
-            <input type="password" id="password" placeholder="Password" name="password" required>
-            <button type="submit">SIGN UP</button>
-            
-            <p >Have an account ?
-                <button >
-                    <a 
-                    href="login.html" class="text-neon-green ml-2 font-medium">Login
-                    </a>
-                </button>
-            
-            </p>
+    <form action="{restaurants.html}" method="POST">
+        <h1>Login</h1>
+        
+        <input type="text" id="Username" placeholder="Username" name="username" required>
+        
+        <input type="password" id="password" placeholder="Password" name="password" required>
+        <button type="submit">Login</button>
     </form>
     
-  
+ 
 </body>
 </html>
 
