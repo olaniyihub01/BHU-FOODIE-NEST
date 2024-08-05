@@ -15,28 +15,8 @@
             padding: 0px;
         }
         
-        /* Style the form container */
-        form {
-            padding: 40px;
-            width: 50%;
-            margin: 20px auto;
-        }
         
-        /* Style the form labels and inputs */
-        label {
-            display: block;
-            margin-bottom: 10px;
-        }
-        
-        input[type="text"], input[type="email"], input[type="password"] {
-            width: 100%;
-            height: 40px;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        
+       
         /* Style the submit button */
         button[type="submit"] {
             background-color: #4CAF50;
@@ -96,12 +76,15 @@
 </head>
 <body>
     <header>
-        <h1>Food Ordering System</h1>
+        <h1>RESTAURANT </h1>
     </header>
     
     <h2>Select a Restaurant</h2>
     <ul class="restaurant-list">
         {% for restaurant in restaurants %}
+            <li><a href="#" data-restaurant-id="{{ restaurant.id }}">{{ restaurant.name }}</a></li>
+            <li><a href="#" data-restaurant-id="{{ restaurant.id }}">{{ restaurant.name }}</a></li>
+            <li><a href="#" data-restaurant-id="{{ restaurant.id }}">{{ restaurant.name }}</a></li>
             <li><a href="#" data-restaurant-id="{{ restaurant.id }}">{{ restaurant.name }}</a></li>
         {% endfor %}
     </ul>
