@@ -2,4 +2,6 @@ BHU foodie-nest provides a user friendly platform that solves comprehensive prob
  
 This website enhances dining experience by providing an effective interface for ordering food seamlessly. It also provides the users a range of restaurants and cuisines all in one place, with a simplified ordering process and tracking of these orders.
  
-Overall, BHU foodie-nest offer a modern solution that enhances satisfaction and efficiency for all parties involved, making dining experience a more enjoyable and stress-free process.
+Overall, BHU foodie-
+nest offer a modern solution that enhances satisfaction and efficiency for all parties involved, making dining experience a more enjoyable and stress-free process.
+It is a friendly website that will satisfy the user. without the stress of going out but getting it at the comfort of their home.
